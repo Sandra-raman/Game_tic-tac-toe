@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './TicTacToe.css';
 import cross from '../assets/X.png';
 import circle from '../assets/O.png';
+import { Link } from 'react-router-dom';
 
 let data = ["", "", "", "", "", "", "", "", ""];
 
@@ -56,7 +57,7 @@ function TicTacToe() {
     };
 
     return (
-        <div className='container'>
+        <div className='container '>
             <h1 className='title'>Tic Tac Toe Game</h1>
             <h2 id='titleRef' dangerouslySetInnerHTML={{ __html: winnerMessage }}></h2>
             <div className="board">
@@ -78,7 +79,12 @@ function TicTacToe() {
                     <div className="col" onClick={(e) => toggle(e, 8)}></div>
                 </div>
             </div>
-            <button className="custom-btn btn-8" onClick={reset}><span>Restart</span></button>
+            <div style={{marginLeft:'82px', paddingBottom:'200px'}}>
+            <button className="custom-btn btn-8 me-5" onClick={reset}><span>Restart</span></button>
+            <Link to={'/'}>
+            <button className="custom-btn btn-8" ><span>Home</span></button>
+            </Link>
+            </div>
         </div>
     );
 };
